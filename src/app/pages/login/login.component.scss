@@ -1,0 +1,44 @@
+@use 'variables' as *;
+
+:host, .welcome, form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+:host {
+  gap: 1.5rem;
+  height: 100dvh;
+  padding: 2rem 0;
+}
+
+.welcome {
+  gap: .5rem;
+  padding: 1.5rem 0;
+
+  h1 {
+    @include title2;
+  }
+}
+
+form {
+  gap: 1rem;
+  padding: 1.5rem 0;
+}
+
+.form_field {
+  position: relative;
+  margin-bottom: 1rem;
+
+  .input_icon {
+    position: absolute;
+    left: .75rem;
+    top: 20%;
+  }
+}
+
+.version {
+  color: $gray-700;
+  @include paragraph2;
+}

@@ -1,0 +1,54 @@
+@use 'fonts' as *;
+@use 'variables' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "PP Telegraf", sans-serif;
+  @include paragraph1;
+}
+
+a {
+  color: $navi-blue;
+  text-decoration: none;
+  cursor: pointer;
+  transition: .3s ease;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+button {
+  width: 320px;
+  color: $white;
+  padding: .75rem 0;
+  background-color: $navi-blue;
+  border: 1px solid $navi-blue;
+  border-radius: .25rem;
+  cursor: pointer;
+  transition: .3s ease;
+
+  &:hover {
+    color: $navi-blue;
+    background-color: $white;
+  }
+}
+
+input {
+  width: 320px;
+  color: $navi-blue;
+  background-color: $gray-100;
+
+  padding: .75rem 1rem .75rem 3rem;
+
+  outline: none;
+  border: none;
+  border-bottom: 2px solid $navi-blue;
+
+  &::placeholder {
+    color: $navi-blue;
+    @include paragraph3
+  }
+}

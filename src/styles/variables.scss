@@ -1,0 +1,80 @@
+$navi-blue: #10458B;
+$vivid-cyan-blue: #0693E3;
+$pale-cyan-blue: #8ED1FC;
+$vivid-green-cyan: #00D084;
+$light-green-cyan: #7BDCB5;
+$accent-cyan: #4AEADC;
+
+$gradiente: #3FB38C, #078093;
+$white: #FFF;
+
+$gray-100: #F1F4F9;
+$gray-400: #9EB0C7;
+$gray-700: #566376;
+$gray-900: #383F47;
+
+$ui-error: #EE2C82;
+
+$sz-48: 3rem;
+$sz-32: 2rem;
+$sz-28: 1.75rem;
+$sz-26: 1.625rem;
+$sz-24: 1.5rem;
+$sz-20: 1.25rem;
+$sz-18: 1.125rem;
+$sz-16: 1rem;
+$sz-14: .875rem;
+
+$bold: 600;
+$regular: 500;
+$light: 400;
+
+@mixin display {
+  font-size: $sz-48;
+  font-weight: $bold;
+}
+
+@mixin title1 {
+  font-size: $sz-32;
+  font-weight: $regular;
+}
+
+@mixin title2 {
+  font-size: $sz-28;
+  font-weight: $regular;
+}
+
+@mixin title3 {
+  font-size: $sz-26;
+  font-weight: $regular;
+}
+
+@mixin title4 {
+  font-size: $sz-24;
+  font-weight: $regular;
+}
+
+@mixin subtitle1 {
+  font-size: $sz-20;
+  font-weight: $regular;
+}
+
+@mixin subtitle2 {
+  font-size: $sz-18;
+  font-weight: $regular;
+}
+
+@mixin paragraph1 {
+  font-size: $sz-16;
+  font-weight: $regular;
+}
+
+@mixin paragraph2 {
+  font-size: $sz-16;
+  font-weight: $light;
+}
+
+@mixin paragraph3 {
+  font-size: $sz-14;
+  font-weight: $regular;
+}
