@@ -1,12 +1,19 @@
-import { NgOptimizedImage } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, inject } from '@angular/core';
+import {
+  NonNullableFormBuilder,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { NgOptimizedImage } from '@angular/common';
+
+import { LoginService } from '@Services/login.service';
 
 @Component({
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, ReactiveFormsModule],
   styleUrl: 'login.component.scss',
   template: `
-    <img 
+    <img
       ngSrc="assets/png/fortesLogomarca.png"
       height="77"
       width="260"
@@ -19,7 +26,7 @@ import { Component } from "@angular/core";
       <p>Informe suas credenciais para continuar</p>
     </div>
 
-    <form>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form_field">
         <img
           class="input_icon"
@@ -31,6 +38,7 @@ import { Component } from "@angular/core";
         <input
           type="text"
           placeholder="Digite a sua inscrição"
+          formControlName="email"
         />
       </div>
       <div class="form_field">
@@ -44,14 +52,29 @@ import { Component } from "@angular/core";
         <input
           type="password"
           placeholder="Digite a sua senha"
+          formControlName="password"
         />
       </div>
 
-      <button type="submit">Acessar</button>
+      <button type="submit" [disabled]="form.invalid">Acessar</button>
       <a>Cadastrar</a>
     </form>
 
     <p class="version">Versão 1.0.0</p>
   `,
 })
-export class LoginComponent {}
+export class LoginComponent {
+  private loginService = inject(LoginService);
+  private fb = inject(NonNullableFormBuilder);
+
+  protected form = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]],
+  });
+
+  onSubmit() {
+    if (this.form.valid) {
+      this.loginService.tryLogin(this.form.value);
+    }
+  }
+}

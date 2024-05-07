@@ -1,0 +1,19 @@
+@use "variables" as *;
+
+.select_container {
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  align-items: center;
+  gap: 1rem;
+
+  border: 1px solid $navi-blue;
+  border-radius: $radius-1;
+  padding: $sz-8 $sz-16;
+
+  cursor: pointer;
+
+  .placeholder {
+    @include paragraph1;
+    color: $navi-blue;
+  }
+}

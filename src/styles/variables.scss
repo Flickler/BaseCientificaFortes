@@ -1,19 +1,21 @@
-$navi-blue: #10458B;
-$vivid-cyan-blue: #0693E3;
-$pale-cyan-blue: #8ED1FC;
-$vivid-green-cyan: #00D084;
-$light-green-cyan: #7BDCB5;
-$accent-cyan: #4AEADC;
+$navi-blue: #10458b;
+$vivid-cyan-blue: #0693e3;
+$pale-cyan-blue: #8ed1fc;
+$vivid-green-cyan: #00d084;
+$light-green-cyan: #7bdcb5;
+$accent-cyan: #4aeadc;
 
-$gradiente: #3FB38C, #078093;
-$white: #FFF;
+$gradiente: #3fb38c, #078093;
+$white: #fff;
 
-$gray-100: #F1F4F9;
-$gray-400: #9EB0C7;
+$shadow: 0 2px 8px hsla(212, 12%, 25%, 40%);
+
+$gray-100: #f1f4f9;
+$gray-400: #9eb0c7;
 $gray-700: #566376;
-$gray-900: #383F47;
+$gray-900: #383f47;
 
-$ui-error: #EE2C82;
+$ui-error: #ee2c82;
 
 $sz-48: 3rem;
 $sz-32: 2rem;
@@ -23,7 +25,10 @@ $sz-24: 1.5rem;
 $sz-20: 1.25rem;
 $sz-18: 1.125rem;
 $sz-16: 1rem;
-$sz-14: .875rem;
+$sz-14: 0.875rem;
+$sz-8: 0.5rem;
+
+$radius-1: 0.175rem;
 
 $bold: 600;
 $regular: 500;

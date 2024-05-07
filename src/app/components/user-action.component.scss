@@ -1,0 +1,58 @@
+@use "variables" as *;
+
+:host {
+  position: relative;
+}
+
+.actions_icon {
+  display: block;
+  user-select: none;
+
+  border-radius: 50%;
+  background-color: $white;
+  border: 1px solid $gray-400;
+
+  width: fit-content;
+  padding: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    text-decoration: none;
+    background-color: $gray-100;
+    border: 1px solid $gray-100;
+  }
+}
+
+.actions_container {
+  display: none;
+  position: absolute;
+  top: 120%;
+
+  background-color: $white;
+  border-radius: $sz-14;
+  box-shadow: $shadow;
+
+  overflow: hidden;
+  min-width: 160px;
+
+  &.active {
+    display: block;
+  }
+
+  button {
+    display: inline-block;
+    color: $navi-blue;
+    text-align: start;
+
+    background-color: $white;
+    border: none;
+    padding: $sz-14 $sz-18;
+    width: 100%;
+
+    &:hover {
+      background-color: $gray-100;
+      text-decoration: none;
+    }
+  }
+}

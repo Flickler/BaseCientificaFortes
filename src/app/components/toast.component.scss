@@ -1,0 +1,21 @@
+@use "variables" as *;
+
+:host {
+  display: block;
+  color: $white;
+  width: fit-content;
+  padding: $sz-16;
+  border-radius: $sz-14;
+}
+
+:host.info {
+  background-color: $pale-cyan-blue;
+}
+
+:host.warn {
+  background-color: $ui-error;
+}
+
+:host.sucess {
+  background-color: $light-green-cyan;
+}
