@@ -29,6 +29,7 @@
       "@Pages/*": ["./src/app/pages/*"],
       "@Directives/*": ["./src/app/directives/*"],
       "@Guards/*": ["./src/app/guards/*"],
+      "@Types/*": ["./src/app/types/*"],
       "@environments/*": ["./src/environments/*"]
     }
   },

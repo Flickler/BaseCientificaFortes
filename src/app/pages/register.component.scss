@@ -1,0 +1,23 @@
+@use "variables" as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+}
+
+h1 {
+  @include title2;
+  color: $navi-blue;
+  margin-bottom: $sz-24;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $sz-24;
+}

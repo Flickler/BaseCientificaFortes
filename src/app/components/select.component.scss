@@ -1,5 +1,12 @@
 @use "variables" as *;
 
+:host {
+  display: block;
+  user-select: none;
+  position: relative;
+  width: 100%;
+}
+
 .select_container {
   display: grid;
   grid-template-columns: 20px 1fr 20px;
@@ -15,5 +22,42 @@
   .placeholder {
     @include paragraph1;
     color: $navi-blue;
+  }
+}
+
+.options_container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  left: 0;
+  top: 105%;
+
+  background-color: $white;
+  border: 1px solid $navi-blue;
+  border-radius: $radius-1;
+  width: 320px;
+
+  &.active {
+    display: flex;
+  }
+
+  .option {
+    display: block;
+
+    color: $navi-blue;
+    text-align: center;
+    background-color: transparent;
+
+    width: 100%;
+    padding: 0.75rem 0;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    &:hover {
+      background-color: $pale-cyan-blue;
+    }
   }
 }

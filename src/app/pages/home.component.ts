@@ -11,7 +11,7 @@ import { UserActionsComponent } from '@Components/user-action.component';
   template: `
     <fortes-header />
     <main>
-      <a class="actions">Cadastrar</a>
+      <a class="actions" routerLink="register">Cadastrar</a>
       <a class="actions" routerLink="management">Gerenciar Equipes</a>
       <a class="actions">Alocar Equipes</a>
     </main>
