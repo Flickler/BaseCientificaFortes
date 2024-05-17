@@ -1,10 +1,6 @@
-import { Component, inject, input, output, signal } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-
-type option = {
-  value: string;
-  viewValue: string;
-};
+import { option } from '@Types/option.type';
 
 @Component({
   selector: 'fortes-select',
@@ -27,6 +23,7 @@ type option = {
         alt="Icone de cargo"
       />
     </div>
+    @if (options()) {
     <div class="options_container" [class.active]="active()">
       @for (option of options(); track $index) {
       <span class="option" (click)="onChoice(option)">
@@ -34,11 +31,12 @@ type option = {
       </span>
       }
     </div>
+    }
   `,
 })
 export class SelectComponent {
   label = input('Selecione uma opção');
-  options = input.required<option[]>();
+  options = input.required<option[] | null>();
   onSelect = output<string>();
   protected value = signal<null | option>(null);
   protected active = signal(false);

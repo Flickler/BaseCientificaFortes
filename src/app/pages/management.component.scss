@@ -12,3 +12,86 @@ h1 {
   color: $navi-blue;
   margin: $sz-24 0;
 }
+
+.manager_options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $sz-16;
+}
+
+fortes-select {
+  width: 390px;
+}
+
+input {
+  display: none;
+}
+
+label {
+  color: $navi-blue;
+  background-color: $white;
+  border: 1px solid $navi-blue;
+  border-radius: 0.125rem;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  &:hover {
+    color: $white;
+    background-color: $navi-blue;
+  }
+}
+
+.operators_loaded {
+  margin-top: $sz-32;
+  max-height: 240px;
+  width: 580px;
+  overflow-y: auto;
+}
+
+.operator_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: $sz-16;
+  width: 100%;
+
+  .opetator_name {
+    @include paragraph1;
+    color: $gray-700;
+  }
+
+  &.odd {
+    background-color: $white;
+  }
+
+  &.pair {
+    background-color: $gray-100;
+  }
+
+  .remove_icon {
+    cursor: pointer;
+  }
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: $gray-400;
+  border: 1px solid $gray-400;
+  border-radius: $radius-1;
+  padding: $sz-48;
+}
+
+button {
+  margin-top: 2rem;
+  width: 580px;
+}
+
+a {
+  margin-top: 1rem;
+}

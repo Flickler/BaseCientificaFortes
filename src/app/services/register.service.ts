@@ -12,7 +12,13 @@ export class RegisterService {
   private readonly path = environment.apiUrl;
 
   registerAdmin(form: FormRegister) {
-    return this.http.post<{ gestor: Gestor }>(this.path + '/Admin', {
+    return this.http.post<Gestor>(this.path + '/Admin', {
+      gestor: form,
+    });
+  }
+
+  registerEncarregado(form: FormRegister) {
+    return this.http.post<Gestor>(this.path + '/api/encarregado', {
       gestor: form,
     });
   }

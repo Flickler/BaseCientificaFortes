@@ -1,0 +1,49 @@
+<fortes-header />
+<h1>Gerenciar Equipes</h1>
+
+<div class="manager_options">
+  <fortes-select
+    label="Atribuir Encarregado"
+    [options]="encarregados | async"
+    (onSelect)="encarregadoSelected = $event"
+  />
+  <input
+    type="file"
+    accept=".csv"
+    id="csv-import"
+    (change)="onNewFile($event)"
+  />
+  <label for="csv-import">Importar Operários</label>
+</div>
+
+<div class="operators_loaded">
+  @for(operator of operators(); track operator.matricula) {
+  <div
+    class="operator_container"
+    [class.pair]="$index % 2 == 0"
+    [class.odd]="$index % 2 != 0"
+  >
+    <p class="opetator_name">{{ operator.nome }}</p>
+    <img
+      class="remove_icon"
+      ngSrc="assets/svg/close.svg"
+      height="16"
+      width="16"
+      alt="remover operador"
+      (click)="removeOperator(operator.matricula)"
+    />
+  </div>
+  }
+</div>
+
+@if(operators()) {
+<button [disabled]="encarregadoSelected == null" (click)="registerTeam()">
+  Cadastrar
+</button>
+} @else {
+<p class="empty">
+  Não há operadores importados, selecione um arquivo para visualizar
+</p>
+}
+
+<a routerLink="/">Voltar</a>

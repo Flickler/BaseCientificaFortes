@@ -4,65 +4,25 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { catchError, of } from 'rxjs';
+import { RouterLink } from '@angular/router';
+import { Observable, catchError, of } from 'rxjs';
 
+import { NotificationService } from '@Services/notification.service';
 import { HeaderComponent } from '@Components/header.component';
 import { SelectComponent } from '@Components/select.component';
 import { RegisterService } from '@Services/register.service';
+import { Gestor } from '@Types/gestor.type';
 
 @Component({
   standalone: true,
-  imports: [ReactiveFormsModule, HeaderComponent, SelectComponent],
+  imports: [ReactiveFormsModule, RouterLink, HeaderComponent, SelectComponent],
+  templateUrl: 'register.component.html',
   styleUrl: 'register.component.scss',
-  template: `
-    <fortes-header />
-    <h1>Cadastro</h1>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <input
-        type="text"
-        id="matricula"
-        formControlName="matricula"
-        placeholder="Matricula"
-      />
-
-      <input type="text" id="nome" formControlName="nome" placeholder="Nome" />
-
-      <input
-        type="text"
-        id="email"
-        formControlName="email"
-        placeholder="Email"
-      />
-
-      <input
-        type="password"
-        id="senha"
-        formControlName="senha"
-        placeholder="Senha"
-      />
-
-      <input
-        type="password"
-        id="confirmarSenha"
-        formControlName="confirmarSenha"
-        placeholder="Confirme a sua senha"
-      />
-
-      <fortes-select
-        label="Nivel Hierárquico"
-        [options]="options"
-        (onSelect)="controls.tipoRegistro.setValue($event)"
-      />
-
-      <button type="submit" [disabled]="form.invalid || isButtonDisable">
-        Cadastrar
-      </button>
-    </form>
-  `,
 })
 export class RegisterComponent {
   private fb = inject(NonNullableFormBuilder);
   private registerService = inject(RegisterService);
+  private notificationService = inject(NotificationService);
   protected isButtonDisable = false;
 
   protected form = this.fb.group({
@@ -83,28 +43,50 @@ export class RegisterComponent {
     return this.form.controls;
   }
 
-  onSubmit() {
+  protected onSubmit() {
     if (this.form.valid) {
       this.isButtonDisable = true;
       this.controls.confirmarSenha.disable();
       this.controls.tipoRegistro.disable();
-      if (this.controls.tipoRegistro.value == 'admin') {
-        this.registerService
-          .registerAdmin(this.form.value)
-          .pipe(
-            catchError((err) => {
-              console.log(err);
-              return of(null);
-            })
+      this.controls.tipoRegistro.value == 'admin'
+        ? this.formResponseTreatment(
+            'admin',
+            this.registerService.registerAdmin(this.form.value)
           )
-          .subscribe((res) => {
-            console.log(res);
-            this.controls.confirmarSenha.enable();
-            this.controls.tipoRegistro.enable();
-            this.controls.tipoRegistro.setValue('admin');
-            this.isButtonDisable = false;
-          });
-      }
+        : this.formResponseTreatment(
+            'encarregado',
+            this.registerService.registerEncarregado(this.form.value)
+          );
     }
+  }
+
+  private formResponseTreatment(
+    tipoRegistro: string,
+    request: Observable<Gestor>
+  ) {
+    request
+      .pipe(
+        catchError((err) => {
+          console.log(err);
+          return of(null);
+        })
+      )
+      .subscribe((res) => {
+        console.log(res);
+        this.controls.confirmarSenha.enable();
+        this.controls.tipoRegistro.enable();
+        this.controls.tipoRegistro.setValue(tipoRegistro);
+        this.isButtonDisable = false;
+        if (res != null) {
+          this.form.reset();
+          this.notificationService.addNotification(
+            `O ${tipoRegistro} ${res.gestor.nome} foi cadastrado com sucesso!`
+          );
+        } else {
+          this.notificationService.addNotification(
+            'Não foi possivel cadastrar o usuario, por favor verifique as informações e tente novamente mais tarde'
+          );
+        }
+      });
   }
 }

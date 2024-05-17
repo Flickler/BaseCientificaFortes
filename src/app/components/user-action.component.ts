@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 
 import { LoginService } from '@Services/login.service';
@@ -18,6 +18,7 @@ import { LoginService } from '@Services/login.service';
       />
     </button>
     <div class="actions_container" [class.active]="active">
+      <button>Suporte</button>
       <button (click)="logout()">Sair</button>
     </div>
   `,
@@ -25,6 +26,10 @@ import { LoginService } from '@Services/login.service';
 export class UserActionsComponent {
   private loginService = inject(LoginService);
   protected active = false;
+
+  @HostListener('focusout') closeAction() {
+    this.active = false;
+  }
 
   toggle() {
     this.active = !this.active;
