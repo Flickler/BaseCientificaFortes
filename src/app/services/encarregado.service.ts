@@ -9,7 +9,7 @@ import { Gestor } from '@Types/gestor.type';
 })
 export class EncarregadoService {
   private http = inject(HttpClient);
-  private readonly path = environment.apiUrl + '/api/encarregado';
+  private readonly path = environment.apiUrl + 'encarregado';
 
   getEncarregados() {
     return this.http.get<Gestor[]>(this.path);

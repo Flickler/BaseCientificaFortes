@@ -2,7 +2,7 @@ export const environment: {
   apiUrl: string;
   administrators: { email: string; password: string }[];
 } = {
-  apiUrl: 'https://localhost:7156',
+  apiUrl: 'https://localhost:7156/api/',
   administrators: [
     {
       email: 'admin@admin.com',
