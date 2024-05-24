@@ -1,12 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { AsyncPipe, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { catchError, map, of } from 'rxjs';
+import { catchError, of, take } from 'rxjs';
 
 import { HeaderComponent } from '@Components/header.component';
 import { SelectComponent } from '@Components/select.component';
 import { CSVReaderService } from '@Services/csv-reader.service';
-import { EncarregadoService } from '@Services/encarregado.service';
+import { SelectService } from '@Services/select.service';
+import { EquipeService } from '@Services/equipe.service';
 
 @Component({
   standalone: true,
@@ -23,20 +24,12 @@ import { EncarregadoService } from '@Services/encarregado.service';
 })
 export class ManagementComponent {
   private csvReaderService = inject(CSVReaderService);
-  private encarregadoService = inject(EncarregadoService);
-  protected encarregados = this.encarregadoService.getEncarregados().pipe(
-    map((encarregados) =>
-      encarregados.map((encarregado) => {
-        return {
-          viewValue: encarregado.gestor.nome,
-          value: encarregado.id,
-        };
-      })
-    ),
-    catchError(() => of(null))
-  );
+  private selectService = inject(SelectService);
+  private equipeService = inject(EquipeService);
+  protected encarregados = this.selectService.getGestaoEquipe();
   protected operators = this.csvReaderService.getResult();
   protected encarregadoSelected: null | string = null;
+  protected isDisableButton = false;
 
   onNewFile(event: Event) {
     const target = event.target as HTMLInputElement;
@@ -45,10 +38,14 @@ export class ManagementComponent {
   }
 
   registerTeam() {
-    console.log({
-      encarregado: this.encarregadoSelected,
-      operadores: this.operators(),
-    });
+    this.isDisableButton = true;
+    this.equipeService
+      .adicionarOperadores(this.encarregadoSelected!, this.operators()!)
+      .pipe(
+        take(1),
+        catchError((err) => of({ sucess: false, message: err }))
+      )
+      .subscribe((res) => console.log(res));
   }
 
   removeOperator(matricula: string) {

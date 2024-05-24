@@ -1,29 +1,53 @@
+import { Component, computed, signal } from '@angular/core';
+import { DatePipe, NgOptimizedImage } from '@angular/common';
+
 import { HeaderComponent } from '@Components/header.component';
-import { Component } from '@angular/core';
 
 @Component({
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [NgOptimizedImage, HeaderComponent, DatePipe],
   styleUrl: 'agend.component.scss',
-  template: `
-    <fortes-header />
-    <h1>Editar Agenda</h1>
-    <div class="week_list">
-      <span class="week_day atypical">D</span>
-      <span class="week_day">S</span>
-      <span class="week_day">T</span>
-      <span class="week_day">Q</span>
-      <span class="week_day">Q</span>
-      <span class="week_day">S</span>
-      <span class="week_day atypical">S</span>
-    </div>
-    <input type="checkbox" id="atypical-check" />
-    <label for="atypical-check">
-      <span class="check_container">✓</span>
-      <span class="check_label">Dia atípico</span>
-    </label>
-    <textarea placeholder="Adicionar evento..."></textarea>
-    <button>Salvar</button>
-  `,
+  templateUrl: 'agend.component.html',
 })
-export class AgendComponent {}
+export class AgendComponent {
+  protected date = signal<Date>(new Date());
+  protected weekday = computed(() => this.date().getDay());
+
+  setDay(dayNumber: number) {
+    this.weekday() < dayNumber
+      ? this.date.set(
+          new Date(
+            this.date().getFullYear(),
+            this.date().getMonth(),
+            this.date().getDate() + (dayNumber - this.weekday())
+          )
+        )
+      : this.weekday() > dayNumber
+      ? this.date.set(
+          new Date(
+            this.date().getFullYear(),
+            this.date().getMonth(),
+            this.date().getDate() - (this.weekday() - dayNumber)
+          )
+        )
+      : null;
+  }
+
+  setWeek(action: 'previous' | 'next') {
+    action == 'next'
+      ? this.date.set(
+          new Date(
+            this.date().getFullYear(),
+            this.date().getMonth(),
+            this.date().getDate() + 7
+          )
+        )
+      : this.date.set(
+          new Date(
+            this.date().getFullYear(),
+            this.date().getMonth(),
+            this.date().getDate() - 7
+          )
+        );
+  }
+}

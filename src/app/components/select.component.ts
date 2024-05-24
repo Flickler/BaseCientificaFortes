@@ -1,6 +1,6 @@
 import { Component, input, output, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import { option } from '@Types/option.type';
+import { Option } from '@Types/option.type';
 
 @Component({
   selector: 'fortes-select',
@@ -36,20 +36,20 @@ import { option } from '@Types/option.type';
 })
 export class SelectComponent {
   label = input('Selecione uma opção');
-  options = input.required<option[] | null>();
+  options = input.required<Option[] | null>();
   onSelect = output<string>();
-  protected value = signal<null | option>(null);
+  protected value = signal<null | Option>(null);
   protected active = signal(false);
 
   toggle() {
     this.active.update((curr) => !curr);
   }
 
-  setValue(value: option) {
+  setValue(value: Option) {
     this.value.set(value);
   }
 
-  onChoice(option: option) {
+  onChoice(option: Option) {
     this.setValue(option);
     this.onSelect.emit(option.value);
     this.toggle();

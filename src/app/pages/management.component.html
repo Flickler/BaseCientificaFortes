@@ -37,7 +37,10 @@
 </div>
 
 @if(operators()) {
-<button [disabled]="encarregadoSelected == null" (click)="registerTeam()">
+<button
+  [disabled]="encarregadoSelected == null || isDisableButton"
+  (click)="registerTeam()"
+>
   Cadastrar
 </button>
 } @else {

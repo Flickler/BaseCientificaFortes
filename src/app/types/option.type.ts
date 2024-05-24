@@ -1,4 +1,4 @@
-export type option = {
+export type Option = {
   value: string;
   viewValue: string;
 };

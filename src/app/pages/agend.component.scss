@@ -12,6 +12,41 @@ h1 {
   color: $navi-blue;
 }
 
+.week-calendar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 400px;
+  padding: 0.5rem 0;
+  margin: 1rem 0;
+  background-color: $white;
+  border: 2px solid $gray-100;
+  border-radius: $radius-1;
+
+  .date_calendar {
+    @include paragraph3;
+    color: $gray-400;
+  }
+
+  .action_calendar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 1.75rem;
+    width: 1.75rem;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+
+    &:hover {
+      background-color: $gray-100;
+    }
+  }
+}
+
 input[type="checkbox"] {
   display: none;
 }
@@ -74,6 +109,12 @@ input:checked + label .check_container {
     border-radius: $radius-1;
 
     cursor: pointer;
+    transition: 0.3s;
+
+    &.active {
+      background-color: $navi-blue;
+      color: $white;
+    }
 
     &.atypical::before {
       content: "!";
@@ -117,7 +158,7 @@ textarea {
   padding: $sz-8;
 }
 
-button {
+.save-action {
   width: 400px;
   margin-top: 1rem;
 }

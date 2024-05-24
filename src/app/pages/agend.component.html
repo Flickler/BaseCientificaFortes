@@ -1,0 +1,54 @@
+<fortes-header />
+<h1>Editar Agenda</h1>
+
+<div class="week-calendar">
+  <button class="action_calendar" (click)="setWeek('previous')">
+    <img
+      ngSrc="assets/svg/chevron_left.svg"
+      height="20"
+      width="20"
+      alt="Voltar para a proxima semana"
+    />
+  </button>
+  <p class="date_calendar">{{ date() | date : "dd/MM/yyyy" }}</p>
+  <button class="action_calendar" (click)="setWeek('next')">
+    <img
+      ngSrc="assets/svg/chevron_right.svg"
+      height="20"
+      width="20"
+      alt="Avançar para a proxima semana"
+    />
+  </button>
+</div>
+
+<div class="week_list">
+  <span class="week_day" [class.active]="weekday() == 0" (click)="setDay(0)">
+    D
+  </span>
+  <span class="week_day" [class.active]="weekday() == 1" (click)="setDay(1)">
+    S
+  </span>
+  <span class="week_day" [class.active]="weekday() == 2" (click)="setDay(2)">
+    T
+  </span>
+  <span class="week_day" [class.active]="weekday() == 3" (click)="setDay(3)">
+    Q
+  </span>
+  <span class="week_day" [class.active]="weekday() == 4" (click)="setDay(4)">
+    Q
+  </span>
+  <span class="week_day" [class.active]="weekday() == 5" (click)="setDay(5)">
+    S
+  </span>
+  <span class="week_day" [class.active]="weekday() == 6" (click)="setDay(6)">
+    S
+  </span>
+</div>
+
+<input type="checkbox" id="atypical-check" />
+<label for="atypical-check">
+  <span class="check_container">✓</span>
+  <span class="check_label">Dia atípico</span>
+</label>
+<textarea placeholder="Adicionar evento..."></textarea>
+<button class="save-action">Salvar</button>
