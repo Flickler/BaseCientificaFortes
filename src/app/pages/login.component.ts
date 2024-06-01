@@ -57,7 +57,6 @@ import { LoginService } from '@Services/login.service';
       </div>
 
       <button type="submit" [disabled]="form.invalid">Acessar</button>
-      <a>Cadastrar</a>
     </form>
 
     <p class="version">Versão 1.0.0</p>

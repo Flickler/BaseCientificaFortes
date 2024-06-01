@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
 import { environment } from '@environments/environment';
-import { SelectGestor } from '@Types/gestor.type';
+import { Gestor, SelectGestor } from '@Types/gestor.type';
 import { Option } from '@Types/option.type';
 import { Obra } from '@Types/obra.type';
 
@@ -21,6 +21,19 @@ export class SelectService {
           return {
             value: option.id,
             viewValue: `${option.encarregado.gestor.nome} - ${option.setor}`,
+          };
+        })
+      )
+    );
+  }
+
+  getEncarregados(): Observable<Option[]> {
+    return this.http.get<Gestor[]>(this.path + '/encarregado').pipe(
+      map((res) =>
+        res.map((option) => {
+          return {
+            value: option.id,
+            viewValue: option.gestor.nome,
           };
         })
       )
