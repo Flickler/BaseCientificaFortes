@@ -39,6 +39,7 @@
   border: 1px solid $navi-blue;
   border-radius: $radius-1;
   width: 100%;
+  z-index: 1;
 
   &.active {
     display: flex;

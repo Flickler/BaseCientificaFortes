@@ -13,7 +13,7 @@ import { UserActionsComponent } from '@Components/user-action.component';
     <main>
       <a class="actions" routerLink="register">Cadastrar</a>
       <a class="actions" routerLink="management">Gerenciar Equipes</a>
-      <a class="actions">Alocar Equipes</a>
+      <a class="actions" routerLink="team">Alocar Equipes</a>
       <a class="actions" routerLink="agend">Editar Agenda</a>
     </main>
   `,

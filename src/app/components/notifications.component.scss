@@ -1,0 +1,18 @@
+fortes-toast {
+  animation: notification 0.6s ease;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@keyframes notification {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

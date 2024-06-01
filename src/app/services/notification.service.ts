@@ -1,25 +1,27 @@
-import { Injectable, computed, signal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
+
+import { Notification } from '@Types/notification.type';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NotificationService {
-  notifications = signal<string[]>([]);
+  private notifications = signal<Notification[]>([]);
 
   getNotifications() {
     return this.notifications.asReadonly();
   }
 
-  addNotification(notification: string) {
+  addNotification(notification: Notification) {
     this.notifications.update((curr) => [...curr, notification]);
     setTimeout(() => {
       this.removeNotification(notification);
     }, 5000);
   }
 
-  private removeNotification(notification: string) {
+  private removeNotification(notification: Notification) {
     this.notifications.update((curr) =>
-      curr!.filter((note) => note != notification)
+      curr.filter((note) => note != notification)
     );
   }
 }

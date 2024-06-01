@@ -45,10 +45,20 @@
   </span>
 </div>
 
-<input type="checkbox" id="atypical-check" />
+<input type="checkbox" id="atypical-check" [(ngModel)]="atypical" />
 <label for="atypical-check">
   <span class="check_container">✓</span>
   <span class="check_label">Dia atípico</span>
 </label>
-<textarea placeholder="Adicionar evento..."></textarea>
-<button class="save-action">Salvar</button>
+@if (atypical) {
+<fortes-select
+  label="Selecione a obra caso seja feriado local"
+  [options]="obras$ | async"
+  (onSelect)="obraSelected.set($event)"
+/>
+}
+<textarea
+  placeholder="Adicionar evento..."
+  [(ngModel)]="description"
+></textarea>
+<button class="save-action" (click)="sendDateInformation()">Salvar</button>

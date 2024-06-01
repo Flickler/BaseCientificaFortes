@@ -1,0 +1,5 @@
+@for(note of notifications(); track $index){
+<fortes-toast [type]="note.type">
+  {{ note.description }}
+</fortes-toast>
+}

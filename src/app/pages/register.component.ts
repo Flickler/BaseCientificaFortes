@@ -79,13 +79,16 @@ export class RegisterComponent {
         this.isButtonDisable = false;
         if (res != null) {
           this.form.reset();
-          this.notificationService.addNotification(
-            `O ${tipoRegistro} ${res.gestor.nome} foi cadastrado com sucesso!`
-          );
+          this.notificationService.addNotification({
+            description: `O ${tipoRegistro} ${res.gestor.nome} foi cadastrado com sucesso!`,
+            type: 'sucess',
+          });
         } else {
-          this.notificationService.addNotification(
-            'Não foi possivel cadastrar o usuario, por favor verifique as informações e tente novamente mais tarde'
-          );
+          this.notificationService.addNotification({
+            description:
+              'Não foi possivel cadastrar o usuario, por favor verifique as informações e tente novamente mais tarde',
+            type: 'warn',
+          });
         }
       });
   }

@@ -47,6 +47,11 @@ h1 {
   }
 }
 
+fortes-select {
+  width: 400px;
+  margin-bottom: 1rem;
+}
+
 input[type="checkbox"] {
   display: none;
 }
@@ -58,7 +63,7 @@ label {
   gap: $sz-8;
 
   width: 400px;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   cursor: pointer;
 
@@ -150,12 +155,6 @@ input:checked + label .check_container {
       width: 100%;
     }
   }
-}
-
-textarea {
-  min-height: 100px;
-  width: 400px;
-  padding: $sz-8;
 }
 
 .save-action {

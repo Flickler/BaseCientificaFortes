@@ -64,6 +64,10 @@ textarea {
   border: 1px solid $gray-400;
   border-radius: $radius-1;
   outline: none;
+
+  padding: $sz-8;
+  min-height: 100px;
+  width: 400px;
 }
 
 ::-webkit-scrollbar {

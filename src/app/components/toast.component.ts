@@ -1,3 +1,4 @@
+import { NoteStatus } from '@Types/notification.type';
 import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
@@ -9,5 +10,5 @@ import { Component, HostBinding, Input } from '@angular/core';
 export class ToastComponent {
   @HostBinding('class')
   @Input()
-  type: 'info' | 'warn' | 'sucess' = 'info';
+  type: NoteStatus = 'info';
 }

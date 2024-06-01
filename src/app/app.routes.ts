@@ -6,6 +6,7 @@ import { ManagementComponent } from '@Pages/management.component';
 import { canActivateManagement } from '@Guards/can-activate-management.guard';
 import { RegisterComponent } from '@Pages/register.component';
 import { AgendComponent } from '@Pages/agend.component';
+import { TeamComponent } from '@Pages/team.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,10 @@ export const routes: Routes = [
   {
     path: 'management',
     component: ManagementComponent,
+  },
+  {
+    path: 'team',
+    component: TeamComponent,
   },
   {
     path: 'agend',

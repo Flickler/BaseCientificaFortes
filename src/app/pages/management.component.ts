@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { AsyncPipe, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { catchError, of, take } from 'rxjs';
 
-import { HeaderComponent } from '@Components/header.component';
-import { SelectComponent } from '@Components/select.component';
+import { NotificationService } from '@Services/notification.service';
 import { CSVReaderService } from '@Services/csv-reader.service';
 import { SelectService } from '@Services/select.service';
 import { EquipeService } from '@Services/equipe.service';
+import { HeaderComponent } from '@Components/header.component';
+import { SelectComponent } from '@Components/select.component';
 
 @Component({
   standalone: true,
@@ -23,6 +23,7 @@ import { EquipeService } from '@Services/equipe.service';
   providers: [CSVReaderService],
 })
 export class ManagementComponent {
+  private notificationService = inject(NotificationService);
   private csvReaderService = inject(CSVReaderService);
   private selectService = inject(SelectService);
   private equipeService = inject(EquipeService);
@@ -41,11 +42,21 @@ export class ManagementComponent {
     this.isDisableButton = true;
     this.equipeService
       .adicionarOperadores(this.encarregadoSelected!, this.operators()!)
-      .pipe(
-        take(1),
-        catchError((err) => of({ sucess: false, message: err }))
-      )
-      .subscribe((res) => console.log(res));
+      .subscribe((res) => {
+        if (res) {
+          this.operators.set(null);
+          this.notificationService.addNotification({
+            description: 'Equipe Cadastrada com sucesso!',
+            type: 'sucess',
+          });
+        } else {
+          this.notificationService.addNotification({
+            description:
+              'Ocorreu algo no registro, por favor confira as informações e tente novamente mais tarde!',
+            type: 'warn',
+          });
+        }
+      });
   }
 
   removeOperator(matricula: string) {
