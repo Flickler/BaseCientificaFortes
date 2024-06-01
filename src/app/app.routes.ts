@@ -7,6 +7,7 @@ import { canActivateManagement } from '@Guards/can-activate-management.guard';
 import { RegisterComponent } from '@Pages/register.component';
 import { AgendComponent } from '@Pages/agend.component';
 import { TeamComponent } from '@Pages/team.component';
+import { ReportComponent } from '@Pages/report.component';
 
 export const routes: Routes = [
   {
@@ -34,6 +35,10 @@ export const routes: Routes = [
   {
     path: 'agend',
     component: AgendComponent,
+  },
+  {
+    path: 'report',
+    component: ReportComponent,
   },
   {
     path: '**',

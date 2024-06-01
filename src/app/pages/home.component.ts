@@ -15,6 +15,7 @@ import { UserActionsComponent } from '@Components/user-action.component';
       <a class="actions" routerLink="management">Gerenciar Equipes</a>
       <a class="actions" routerLink="team">Alocar Equipes</a>
       <a class="actions" routerLink="agend">Editar Agenda</a>
+      <a class="actions" routerLink="report">Relatórios</a>
     </main>
   `,
 })
