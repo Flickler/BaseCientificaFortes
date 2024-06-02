@@ -28,7 +28,7 @@ export class UserActionsComponent {
   protected active = false;
 
   @HostListener('focusout') closeAction() {
-    this.active = false;
+    setTimeout(() => (this.active = false), 200);
   }
 
   toggle() {

@@ -3,5 +3,10 @@ export const environment: {
   administrators: { email: string; password: string }[];
 } = {
   apiUrl: 'https://fotes-alimentacao-api.onrender.com/api/',
-  administrators: [],
+  administrators: [
+    {
+      email: 'administrador@fortes.com',
+      password: '*12345678*',
+    },
+  ],
 };
