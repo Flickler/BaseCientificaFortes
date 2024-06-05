@@ -56,3 +56,9 @@
     }
   }
 }
+
+@media screen and (max-width: 720px) {
+  .actions_container {
+    left: -250%;
+  }
+}
