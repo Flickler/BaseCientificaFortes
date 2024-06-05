@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100dvh;
+  min-height: 100dvh;
 }
 
 h1 {
@@ -94,4 +94,21 @@ button {
 
 a {
   margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 720px) {
+  .manager_options {
+    flex-direction: column;
+    width: 360px;
+  }
+
+  fortes-select,
+  label,
+  button,
+  .operators_loaded,
+  .empty {
+    text-align: center;
+    width: 340px;
+  }
 }

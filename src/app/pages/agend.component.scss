@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100dvh;
+  min-height: 100dvh;
 }
 
 h1 {
@@ -160,4 +160,25 @@ input:checked + label .check_container {
 .save-action {
   width: 400px;
   margin-top: 1rem;
+}
+
+a {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 500px) {
+  .week-calendar,
+  .atypical-check,
+  .week_list,
+  .save-action,
+  label,
+  textarea {
+    width: 320px;
+  }
+
+  .week_list .week_day {
+    height: 40px;
+    width: 40px;
+  }
 }

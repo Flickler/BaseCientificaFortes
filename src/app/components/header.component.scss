@@ -11,3 +11,13 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 1024px) {
+  :host {
+    margin: 3rem 0;
+  }
+
+  header {
+    padding: 2rem;
+  }
+}

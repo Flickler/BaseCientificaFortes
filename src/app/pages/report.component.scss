@@ -61,3 +61,23 @@ main {
     @include paragraph3;
   }
 }
+
+@media screen and (max-width: 720px) {
+  main {
+    width: 420px;
+  }
+
+  .dates {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  main {
+    width: 320px;
+  }
+
+  .dates {
+    grid-template-columns: 1fr;
+  }
+}

@@ -4,13 +4,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100dvh;
+  min-height: 100dvh;
 }
 
 h1 {
   @include title2;
   color: $navi-blue;
-  margin: $sz-48;
+  margin: $sz-48 auto;
 }
 
 div {
@@ -26,4 +26,18 @@ button {
 
 a {
   margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 500px) {
+  div {
+    margin: 0 auto;
+    width: 320px;
+
+    fortes-select,
+    textarea,
+    button {
+      width: 100%;
+    }
+  }
 }

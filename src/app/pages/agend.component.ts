@@ -1,5 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { AsyncPipe, DatePipe, NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 import { AgendService } from '@Services/agend.service';
 import { SelectService } from '@Services/select.service';
@@ -12,6 +13,7 @@ import { UpdateAgend } from '@Types/agend.type';
 @Component({
   standalone: true,
   imports: [
+    RouterLink,
     NgOptimizedImage,
     FormsModule,
     HeaderComponent,
