@@ -35,7 +35,7 @@ import { RouterLink } from '@angular/router';
           </div>
           }
         </div>
-        <!-- <p class="total">Total semanal: {{ rel.totalSemanal }} refeições</p> -->
+        <p class="total">Total semanal: {{ rel.totalSemanal }} refeições</p>
       </div>
       }
     </main>
