@@ -31,8 +31,8 @@ import { LoginService } from '@Services/login.service';
         <img
           class="input_icon"
           ngSrc="assets/svg/person.svg"
-          height="20"
-          width="20"
+          height="18"
+          width="18"
           alt="icone pessoal"
         />
         <input
@@ -46,7 +46,7 @@ import { LoginService } from '@Services/login.service';
           class="input_icon"
           ngSrc="assets/svg/lock.svg"
           height="20"
-          width="15"
+          width="14"
           alt="icone de segurança"
         />
         <input

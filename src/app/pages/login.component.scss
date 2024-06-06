@@ -1,6 +1,8 @@
-@use 'variables' as *;
+@use "variables" as *;
 
-:host, .welcome, form {
+:host,
+.welcome,
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +16,7 @@
 }
 
 .welcome {
-  gap: .5rem;
+  gap: 0.5rem;
   padding: 1.5rem 0;
 
   h1 {
@@ -28,14 +30,7 @@ form {
 }
 
 .form_field {
-  position: relative;
   margin-bottom: 1rem;
-
-  .input_icon {
-    position: absolute;
-    left: .75rem;
-    top: 20%;
-  }
 }
 
 .version {

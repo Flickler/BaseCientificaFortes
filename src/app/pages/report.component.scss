@@ -62,6 +62,17 @@ main {
   }
 }
 
+.total {
+  color: $navi-blue;
+  background-color: $gray-100;
+  padding: $sz-8 $sz-16;
+}
+
+a {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
 @media screen and (max-width: 720px) {
   main {
     width: 420px;

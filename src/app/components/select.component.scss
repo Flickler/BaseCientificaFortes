@@ -13,10 +13,12 @@
   align-items: center;
   gap: 1rem;
 
-  border: 1px solid $navi-blue;
-  border-radius: $radius-1;
-  padding: $sz-8 $sz-16;
+  padding: 0.825rem;
+  background-color: $gray-100;
 
+  border: none;
+  border-bottom: 2px solid $navi-blue;
+  border-radius: $radius-1 $radius-1 0 0;
   cursor: pointer;
 
   .placeholder {

@@ -7,4 +7,5 @@ export type Report = {
     jantar: number;
   }[];
   setor: string;
+  totalSemanal: number;
 };

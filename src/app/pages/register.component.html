@@ -1,30 +1,75 @@
 <fortes-header />
 <h1>Cadastro</h1>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <input
-    type="text"
-    id="matricula"
-    formControlName="matricula"
-    placeholder="Matricula"
-  />
+  <div class="form_field">
+    <img
+      class="input_icon"
+      ngSrc="assets/svg/badge.svg"
+      height="20"
+      width="20"
+      alt="Matrícula"
+    />
+    <input
+      type="text"
+      id="matricula"
+      formControlName="matricula"
+      placeholder="Matrícula"
+    />
+  </div>
 
-  <input type="text" id="nome" formControlName="nome" placeholder="Nome" />
+  <div class="form_field">
+    <img
+      class="input_icon"
+      ngSrc="assets/svg/person.svg"
+      height="18"
+      width="18"
+      alt="Usuario"
+    />
+    <input type="text" id="nome" formControlName="nome" placeholder="Nome" />
+  </div>
 
-  <input type="text" id="email" formControlName="email" placeholder="Email" />
+  <div class="form_field">
+    <img
+      class="input_icon"
+      ngSrc="assets/svg/alternate_email.svg"
+      height="20"
+      width="20"
+      alt="Email"
+    />
+    <input type="text" id="email" formControlName="email" placeholder="Email" />
+  </div>
 
-  <input
-    type="password"
-    id="senha"
-    formControlName="senha"
-    placeholder="Senha"
-  />
+  <div class="form_field">
+    <img
+      class="input_icon"
+      ngSrc="assets/svg/lock.svg"
+      height="20"
+      width="14"
+      alt="icone de segurança"
+    />
+    <input
+      type="password"
+      id="senha"
+      formControlName="senha"
+      placeholder="Senha"
+    />
+  </div>
 
-  <input
-    type="password"
-    id="confirmarSenha"
-    formControlName="confirmarSenha"
-    placeholder="Confirme a sua senha"
-  />
+  <div class="form_field">
+    <img
+      class="input_icon"
+      ngSrc="assets/svg/lock.svg"
+      height="20"
+      width="14"
+      alt="icone de segurança"
+    />
+    <input
+      type="password"
+      id="confirmarSenha"
+      formControlName="confirmarSenha"
+      placeholder="Confirme a sua senha"
+    />
+  </div>
 
   <fortes-select
     label="Nivel Hierárquico"

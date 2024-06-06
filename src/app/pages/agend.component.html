@@ -57,9 +57,6 @@
   (onSelect)="obraSelected.set($event)"
 />
 }
-<textarea
-  placeholder="Adicionar evento..."
-  [(ngModel)]="description"
-></textarea>
+<textarea placeholder="Adicionar evento" [(ngModel)]="description"></textarea>
 <button class="save-action" (click)="sendDateInformation()">Salvar</button>
 <a routerLink="/">Voltar</a>

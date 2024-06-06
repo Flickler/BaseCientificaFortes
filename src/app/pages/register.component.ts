@@ -12,10 +12,17 @@ import { HeaderComponent } from '@Components/header.component';
 import { SelectComponent } from '@Components/select.component';
 import { RegisterService } from '@Services/register.service';
 import { Gestor } from '@Types/gestor.type';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, HeaderComponent, SelectComponent],
+  imports: [
+    ReactiveFormsModule,
+    NgOptimizedImage,
+    RouterLink,
+    HeaderComponent,
+    SelectComponent,
+  ],
   templateUrl: 'register.component.html',
   styleUrl: 'register.component.scss',
 })

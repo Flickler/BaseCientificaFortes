@@ -21,7 +21,7 @@ import { SelectComponent } from '@Components/select.component';
   styleUrl: 'team.component.scss',
   template: `
     <fortes-header />
-    <h1>Gerenciar Equipes</h1>
+    <h1>Alocar Equipes</h1>
 
     <div>
       <fortes-select
@@ -37,7 +37,7 @@ import { SelectComponent } from '@Components/select.component';
       <textarea
         type="text"
         [(ngModel)]="setor"
-        placeholder="Digite o setor"
+        placeholder="Informe o setor"
       ></textarea>
       <button (click)="criarGestaoEquipe()">Salvar</button>
     </div>

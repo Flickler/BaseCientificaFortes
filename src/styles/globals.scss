@@ -47,11 +47,12 @@ input {
   color: $navi-blue;
   background-color: $gray-100;
 
-  padding: 0.75rem 1rem 0.75rem 3rem;
+  padding: 0.825rem 3rem;
 
   outline: none;
   border: none;
   border-bottom: 2px solid $navi-blue;
+  border-radius: $radius-1 $radius-1 0 0;
 
   &::placeholder {
     color: $navi-blue;
@@ -68,6 +69,17 @@ textarea {
   padding: $sz-8;
   min-height: 100px;
   width: 400px;
+}
+
+.form_field {
+  position: relative;
+
+  .input_icon {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    transform: translateY(-50%);
+  }
 }
 
 ::-webkit-scrollbar {
