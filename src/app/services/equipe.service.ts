@@ -15,7 +15,7 @@ export class EquipeService {
   adicionarOperadores(equipeId: string, operadores: Operador[]) {
     return this.http.post<null>(this.path + `/${equipeId}`, operadores).pipe(
       take(1),
-      catchError((err) => of({ sucess: false, message: err }))
+      catchError(() => of(null))
     );
   }
 }
