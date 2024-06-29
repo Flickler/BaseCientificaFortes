@@ -1,21 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '@Components/header.component';
-
-import { UserActionsComponent } from '@Components/user-action.component';
+import { TabLinkComponent } from '@Components/tab-link.component';
 
 @Component({
   standalone: true,
-  imports: [RouterLink, HeaderComponent, UserActionsComponent],
+  imports: [HeaderComponent, TabLinkComponent],
   styleUrl: 'home.component.scss',
   template: `
     <fortes-header />
     <main>
-      <a class="actions" routerLink="register">Cadastrar</a>
-      <a class="actions" routerLink="team">Alocar Equipes</a>
-      <a class="actions" routerLink="management">Gerenciar Equipes</a>
-      <a class="actions" routerLink="agend">Editar Agenda</a>
-      <a class="actions" routerLink="report">Relatórios</a>
+      <fortes-tab-link routerLink="register">Cadastrar</fortes-tab-link>
+      <fortes-tab-link routerLink="team">Alocar Equipes</fortes-tab-link>
+      <fortes-tab-link routerLink="management">Gerenciar Equipes</fortes-tab-link>
+      <fortes-tab-link routerLink="agend">Editar Agenda</fortes-tab-link>
+      <fortes-tab-link routerLink="report">Relatórios</fortes-tab-link>
     </main>
   `,
 })

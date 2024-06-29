@@ -1,0 +1,96 @@
+<form class="form_group" [formGroup]="form">
+  <div class="form_columns">
+    <div class="form_field">
+      <input
+        type="text"
+        id="cep"
+        formControlName="zipCode"
+        placeholder="CEP"
+        mask="00000-000"
+      />
+    </div>
+
+    <div class="form_field">
+      <input
+        type="text"
+        id="uf"
+        formControlName="state"
+        placeholder="UF"
+        mask="SS"
+      />
+    </div>
+  </div>
+  @if(zipCode.invalid && zipCode.touched) {
+    <fortes-toast type="warn">
+      É necessario informar o CEP
+    </fortes-toast>
+  }
+  @if(state.invalid && state.touched) {
+    <fortes-toast type="warn">
+      É necessario informar a UF
+    </fortes-toast>
+  }
+
+  <div class="form_columns">
+    <div class="form_field">
+      <input
+        type="text"
+        id="area"
+        formControlName="area"
+        placeholder="Bairro"
+      />
+    </div>
+
+    <div class="form_field">
+      <input
+        type="text"
+        id="city"
+        formControlName="city"
+        placeholder="Cidade"
+      />
+    </div>
+  </div>
+  @if(area.invalid && area.touched) {
+    <fortes-toast type="warn">
+      É necessario informar o bairro
+    </fortes-toast>
+  }
+  @if(city.invalid && city.touched) {
+    <fortes-toast type="warn">
+      É necessario informar a cidade
+    </fortes-toast>
+  }
+
+  <div class="form_columns">
+    <div class="form_field">
+      <input
+        type="text"
+        id="street"
+        formControlName="street"
+        placeholder="Logradouro"
+      />
+    </div>
+    <div class="form_field">
+      <input
+        type="number"
+        id="number"
+        formControlName="number"
+        placeholder="numero"
+      />
+    </div>
+  </div>
+  @if(street.invalid && street.touched) {
+    <fortes-toast type="warn">
+      É necessario informar o logradouro
+    </fortes-toast>
+  }
+
+  <div class="form_field">
+    <input
+      type="text"
+      id="complemento"
+      formControlName="complement"
+      placeholder="complemento"
+    />
+  </div>
+</form>

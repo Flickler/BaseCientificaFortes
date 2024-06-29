@@ -1,0 +1,35 @@
+@use "variables" as *;
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  border: 1px solid $navi-blue;
+  border-radius: 0.25rem;
+  min-height: 120px;
+  width: 320px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+:host.primary {
+  color: $white;
+  background-color: $navi-blue;
+
+  &:hover {
+    color: $navi-blue;
+    background-color: $white;
+  }
+}
+
+:host.secondary {
+  color: $navi-blue;
+  background-color: $white;
+
+  &:hover {
+    color: $white;
+    background-color: $navi-blue;
+  }
+}

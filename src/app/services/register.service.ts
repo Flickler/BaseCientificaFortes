@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '@environments/environment';
-import { FormRegister } from '@Types/register.type';
+import { RegisterUser } from '@Types/user.type';
 import { Gestor } from '@Types/gestor.type';
 
 @Injectable({
@@ -11,13 +11,13 @@ export class RegisterService {
   private http = inject(HttpClient);
   private readonly path = environment.apiUrl;
 
-  registerAdmin(form: FormRegister) {
+  registerAdmin(form: RegisterUser) {
     return this.http.post<Gestor>(this.path + 'admin', {
       gestor: form,
     });
   }
 
-  registerEncarregado(form: FormRegister) {
+  registerEncarregado(form: RegisterUser) {
     return this.http.post<Gestor>(this.path + 'encarregado', {
       gestor: form,
     });

@@ -1,21 +1,32 @@
 @use "variables" as *;
 
 :host {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $sz-8;
+
   color: $white;
+  font-size: 0.725rem;
+  padding: $sz-8 $sz-16;
+  border-radius: $radius-1;
   width: fit-content;
-  padding: $sz-16;
-  border-radius: $sz-14;
 }
 
 :host.info {
-  background-color: $pale-cyan-blue;
+  color: $pale-cyan-blue;
+  background-color: #8ed1fc1a;
+  border: 1px solid $pale-cyan-blue;
 }
 
 :host.warn {
-  background-color: $ui-error;
+  color: $ui-error;
+  background-color: #ee2c8205;
+  border: 1px solid $ui-error;
 }
 
 :host.sucess {
-  background-color: $light-green-cyan;
+  color: $light-green-cyan;
+  background-color: #00d08405;
+  border: 1px solid $light-green-cyan;
 }

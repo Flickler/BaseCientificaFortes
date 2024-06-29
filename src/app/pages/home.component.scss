@@ -13,23 +13,4 @@ main {
   gap: 0.5rem;
 
   margin-bottom: 3rem;
-
-  .actions {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    color: $white;
-    background-color: $navi-blue;
-    border: 1px solid $navi-blue;
-    border-radius: 0.25rem;
-    min-height: 120px;
-    width: 320px;
-
-    &:hover {
-      text-decoration: none;
-      color: $navi-blue;
-      background-color: $white;
-    }
-  }
 }

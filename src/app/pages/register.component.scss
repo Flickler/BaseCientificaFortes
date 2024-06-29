@@ -4,25 +4,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   min-height: 100dvh;
 }
 
-h1 {
-  @include title2;
-  color: $navi-blue;
-  margin-bottom: $sz-24;
-}
-
-form {
+main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: $sz-24;
-}
+  gap: 0.5rem;
 
-a {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
