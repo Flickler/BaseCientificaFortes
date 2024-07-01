@@ -9,6 +9,7 @@ import { RegisterUSerComponent } from '@Pages/register-user.component';
 import { AgendComponent } from '@Pages/agend.component';
 import { TeamComponent } from '@Pages/team.component';
 import { ReportComponent } from '@Pages/report.component';
+import { RegisterSiteComponent } from '@Pages/register-site.component';
 
 export const routes: Routes = [
   {
@@ -28,6 +29,10 @@ export const routes: Routes = [
   {
     path: 'register-user',
     component: RegisterUSerComponent,
+  },
+  {
+    path: 'register-site',
+    component: RegisterSiteComponent,
   },
   {
     path: 'management',

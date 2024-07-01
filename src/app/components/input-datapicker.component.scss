@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+input {
+  font-size: 0.825rem;
+  width: 100%;
+  padding: 0.825rem 0.825rem 0.825rem 3rem;
+}
+
+fortes-datapicker {
+  display: none;
+  position: absolute;
+  top: 105%;
+  left: 0;
+
+  &.active {
+    display: block;
+  }
+}

@@ -1,0 +1,36 @@
+<div class="datapicker_header">
+  <span class="calendar_action" (click)="previousMonth()">
+    <img
+      ngSrc="assets/svg/chevron_left.svg"
+      height="20"
+      width="20"
+      alt="Mes anterior"
+    />
+  </span>
+  <div class="date_info">
+    <p class="week_day">{{ calendarMonth() }}</p>
+    <p class="date">{{ date() | date : "dd/MM/yyyy" }}</p>
+  </div>
+  <span class="calendar_action" (click)="nextMonth()">
+    <img
+      ngSrc="assets/svg/chevron_right.svg"
+      height="20"
+      width="20"
+      alt="proximo mês"
+    />
+  </span>
+</div>
+
+<div class="datapicker_content">
+  <span class="week">D</span>
+  <span class="week">S</span>
+  <span class="week">T</span>
+  <span class="week">Q</span>
+  <span class="week">Q</span>
+  <span class="week">S</span>
+  <span class="week">S</span>
+
+  @for (day of days(); track $index) {
+  <span class="day" (click)="selectDate(day)">{{ day }}</span>
+  }
+</div>

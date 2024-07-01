@@ -1,0 +1,22 @@
+<div class="form_field">
+  <img
+    class="input_icon"
+    ngSrc="assets/svg/calendar.svg"
+    height="20"
+    width="20"
+    alt="Calendário"
+  />
+  <input
+    type="text"
+    [value]="value() | date : 'dd/MM/yyyy'"
+    readonly
+    (click)="setActive(true); calendar.focus()"
+    [placeholder]="placeholder()"
+  />
+</div>
+<div tabindex="0" (focusout)="setActive(false)" #calendar>
+  <fortes-datapicker
+    [class.active]="active()"
+    (onSelectDate)="onSelectDatapicker($event)"
+  />
+</div>

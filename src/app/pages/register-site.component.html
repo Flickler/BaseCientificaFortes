@@ -1,0 +1,39 @@
+<h1>Cadastrar Obra</h1>
+<p>
+  <img ngSrc="assets/svg/build.svg" height="20" width="20" alt="Matrícula" />
+  <span>Informações cadastrais</span>
+</p>
+<form [formGroup]="form">
+  <div class="form_field">
+    <img
+      class="input_icon"
+      ngSrc="assets/svg/key.svg"
+      height="20"
+      width="20"
+      alt="Matrícula"
+    />
+    <input
+      type="text"
+      id="register"
+      formControlName="identification"
+      placeholder="register"
+      mask="000000000"
+    />
+  </div>
+
+  <div class="form_columns">
+    <fortes-input-datapicker
+      placeholder="Data de Inicio"
+      formControlName="startDate"
+    />
+    <fortes-input-datapicker
+      placeholder="Data Final"
+      formControlName="endDate"
+    />
+  </div>
+
+  <fortes-address-form />
+
+  <button type="submit">Cadastrar Obra</button>
+</form>
+<a routerLink="../">Voltar</a>

@@ -1,0 +1,68 @@
+@use "variables" as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $sz-16;
+
+  padding: $sz-8 $sz-16;
+  background-color: $white;
+  border-radius: $radius-1;
+  box-shadow: $shadow;
+  z-index: 1;
+}
+
+#calendar:focus {
+  outline: 4px solid red;
+}
+
+.datapicker_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: $sz-8 0;
+  border: 1px solid $gray-100;
+  width: 100%;
+
+  .date_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .week_day {
+    color: $gray-400;
+    @include paragraph1;
+  }
+
+  .date {
+    color: $gray-400;
+    @include paragraph3;
+  }
+}
+
+.calendar_action {
+  padding: 0.5rem;
+  height: fit-content;
+  width: fit-content;
+}
+
+.datapicker_content {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.day,
+.week {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.725rem;
+  padding: $sz-8;
+}
